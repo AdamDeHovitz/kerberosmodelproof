@@ -9,7 +9,8 @@ sig Encrypted extends Information {}
 abstract sig Name extends Information {}
 
 one sig Global{
-	encryption: Encrypted -> Key -> Information -> Time
+	encryption: Encrypted -> Key -> Information,
+	initial: Actor -> set Information
 	//encryption[encrypted][key] to get value
 }
 
@@ -36,9 +37,10 @@ one sig Kat extends Key{}
 pred init [t: Time] {
 	Client.info.t = A + Ka
 	KDC.info.t = Ka + Ktgs + Kat
-	TGS.info.t = Ktgs + Ks
+	TGS.info.t = Ktgs + Ks + Kas
 	Service.info.t = Ks + S
-	no Global.encryption.t
+	Global.initial = ((Client -> (A + Ka)) + (KDC -> (Ka + Ktgs + Kat)) 
+		+ (TGS -> (Ktgs + Ks + Kas)) + (Service -> (Ks + S)))
 	}
 
 abstract sig Event {
@@ -56,25 +58,59 @@ fact Traces {
 
 fact Encryption {
 	//Encypted object can only point to at most one unencypted object
-	all e: Encrypted |  lone Global.encryption[e].Time
+	all enc: Encrypted | lone Global.encryption[enc]
+	all enc: Encrypted | some en : Encrypt | en.e = enc
 }
 
-pred oneActorChange[a : Actor, t : Time, t' : Time] {
+pred actorChange[a : Actor, t : Time, t' : Time] {
 	all ac : (Actor - a) |
 		ac.info.t = ac.info.t'
 }
 
 sig Message extends Event {
-	from: Actor,
+	from: Client,
 	to: Actor,
 	inf: set Information
 } {
 	some inf
 	inf in from.info.pre
 	inf not in to.info.pre
-	to.info.post = to.info.pre + inf
-	oneActorChange[to, pre, post]
-	Global.encryption.pre = Global.encryption.post
+	to.info.post = to.info.pre + inf + Global.encryption[inf][to.info.pre]
+	from.info.post = from.info.pre
+	actorChange[to, pre, post]
+}
+
+sig Reply extends Event {
+	from: Actor,
+	to: Client,
+	inf: set Information,
+	message: one Message
+} {
+	some inf
+	inf in from.info.pre
+	inf not in to.info.pre
+	to.info.post = to.info.pre + inf + Global.encryption[inf][to.info.pre]
+	from.info.post = Global.initial[from]
+	actorChange[(to + from), pre, post]
+}
+
+fact noInterruption {
+	all m : Message | one r : Reply | {
+		gt[r.pre, m.pre]
+		m.to = r.from
+		r.to = m.from
+		r.message = m
+		no m2 : Message | {
+			gt[m2.pre, m.pre]
+			lt[m2.pre, r.pre]
+			m2.to = m.to || m2.from = m.from
+		}
+	}
+}
+
+fact noUnsolicitied {
+	Reply.message = Message
+	#Reply = #Message
 }
 
 sig Encrypt extends Event {
@@ -88,34 +124,45 @@ sig Encrypt extends Event {
 	k in a.info.pre
 	e not in a.info.pre // To remove pointless redundancy
 	a.info.post = a.info.pre + e
-	Global.encryption.post = Global.encryption.pre + (e -> k -> i)
-	oneActorChange[a, pre, post]
+	Global.encryption = Global.encryption + (e -> k -> i)
+	actorChange[a, pre, post]
 }
 
-sig Decrypt extends Event {
-	a : Actor,
-	i : Information,
-	k : Key,
-	e : Encrypted
-} {
-	k in a.info.pre
-	e in a.info.pre
-	i not in a.info.pre // remove redundancy
-	a.info.post = a.info.pre + i
-	(e -> k -> i) in Global.encryption.pre
-	Global.encryption.post = Global.encryption.pre
-	oneActorChange[a, pre, post]
-}
+//sig Decrypt extends Event {
+//	a : Actor,
+//	i : Information,
+//	k : Key,
+//	e : Encrypted
+//} {
+//	k in a.info.pre
+//	e in a.info.pre
+//	i not in a.info.pre // remove redundancy
+//	a.info.post = a.info.pre + i
+//	(e -> k -> i) in Global.encryption
+//	oneActorChange[a, pre, post]
+//}
 
 fact noUnencrypted{ //naive, probably shouldn't be final
 	all m : Message | m.inf in Encrypted
+	all r : Reply | r.inf in Encrypted
+}
+
+// If not included, then Service will send key to KDC or TGS, which
+// would defeat the purpose of the system.
+//fact onlyUsertoService {
+//	all m : Message | (m.from = Service) implies (m.to in Client)
+//	all m : Message | (m.to = Service) implies (m.from in Client)
+//}
+
+fact noSecretKeysLost {
+	no Client.info.Time & (Ktgs + Ks)
 }
 
 pred canAccess {
 	S in UserA.info.last
 }
 
-run {canAccess} for 13 Event, 14 Time, 14 Information
+run {canAccess} for 10 Event, 11 Time, 14 Information
 
 
 // NOTE: Maybe make encryption a pre-populated set to speed up 
