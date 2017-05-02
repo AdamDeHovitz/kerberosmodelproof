@@ -40,7 +40,7 @@ pred init [t: Time] {
 	TGS.info.t = Ktgs + Ks + Kas
 	Service.info.t = Ks + S
 	Global.initial = ((Client -> (A + Ka)) + (KDC -> (Ka + Ktgs + Kat)) 
-		+ (TGS -> (Ktgs + Ks + Kas)) + (Service -> (Ks + S)))
+		+ (TGS -> (Ktgs + Ks + Kas)) + (Service -> (Ks + S + Kas)))
 	}
 
 abstract sig Event {
@@ -57,8 +57,8 @@ fact Traces {
 	}
 
 fact Encryption {
-	//Encypted object can only point to at most one unencypted object
-	all enc: Encrypted | lone Global.encryption[enc]
+	//Encrypted object can only point to at most one unencrypted object
+	all enc: Encrypted | one Global.encryption[enc]
 	all enc: Encrypted | some en : Encrypt | en.e = enc
 }
 
@@ -76,7 +76,7 @@ sig Message extends Event {
 	inf in from.info.pre
 	inf not in to.info.pre
 	to.info.post = to.info.pre + inf + Global.encryption[inf][to.info.pre]
-	from.info.post = from.info.pre
+	//from.info.post = from.info.pre
 	actorChange[to, pre, post]
 }
 
@@ -90,7 +90,7 @@ sig Reply extends Event {
 	inf in from.info.pre
 	inf not in to.info.pre
 	to.info.post = to.info.pre + inf + Global.encryption[inf][to.info.pre]
-	from.info.post = Global.initial[from]
+	from.info.post = from.info.pre & Global.initial[from] // Forget learned values, except Service can learn Kas
 	actorChange[(to + from), pre, post]
 }
 
@@ -124,7 +124,7 @@ sig Encrypt extends Event {
 	k in a.info.pre
 	e not in a.info.pre // To remove pointless redundancy
 	a.info.post = a.info.pre + e
-	Global.encryption = Global.encryption + (e -> k -> i)
+	(e -> k -> i) in Global.encryption// = Global.encryption + (e -> k -> i)
 	actorChange[a, pre, post]
 }
 
@@ -158,11 +158,19 @@ fact noSecretKeysLost {
 	no Client.info.Time & (Ktgs + Ks)
 }
 
-pred canAccess {
-	S in UserA.info.last
+fact identityProven {
+	all r : Reply | 
+		//some ((Ka + Kas + Kat) & (Global.encryption[r.inf].Information 
+		//	+ Global.encryption[r.inf][Key])) implies 
+		A in r.from.info.(r.pre)//Global.encryption[r.inf][r.from.info.(r.pre)]
 }
 
-run {canAccess} for 10 Event, 11 Time, 14 Information
+pred canAccess {
+	(S + Kas) in UserA.info.last
+	Kas in Service.info.last
+}
+
+run {canAccess} for 11 Event, 12 Time, 14 Information
 
 
 // NOTE: Maybe make encryption a pre-populated set to speed up 
