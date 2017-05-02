@@ -58,13 +58,13 @@ fact Traces {
 
 fact Encryption {
 	//Encrypted object can only point to at most one unencrypted object
-	all enc: Encrypted | one Global.encryption[enc]
-	all enc: Encrypted | some en : Encrypt | en.e = enc
+	all enc: Encrypted | (one Global.encryption[enc] and  some en : Encrypt | en.e = enc)
 }
 
 pred actorChange[a : Actor, t : Time, t' : Time] {
 	all ac : (Actor - a) |
 		ac.info.t = ac.info.t'
+	//(Actor - a).info.t = (Actor - a).info.t'
 }
 
 sig Message extends Event {
@@ -120,9 +120,9 @@ sig Encrypt extends Event {
 	e : Encrypted
 } {
 	i in a.info.pre
-	i not in Encrypted // no double encryptions, for speed (maybe remove)
+	//i not in Encrypted // no double encryptions, for speed (maybe remove)
 	k in a.info.pre
-	e not in a.info.pre // To remove pointless redundancy
+	//e not in a.info.pre // To remove pointless redundancy
 	a.info.post = a.info.pre + e
 	(e -> k -> i) in Global.encryption// = Global.encryption + (e -> k -> i)
 	actorChange[a, pre, post]
@@ -170,7 +170,7 @@ pred canAccess {
 	Kas in Service.info.last
 }
 
-run {canAccess} for 11 Event, 12 Time, 14 Information
+run {canAccess} for 13 Event, 14 Time, 14 Information
 
 
 // NOTE: Maybe make encryption a pre-populated set to speed up 
