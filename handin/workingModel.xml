@@ -1,0 +1,582 @@
+<alloy builddate="2015-02-22 18:21 EST">
+
+<instance bitwidth="0" maxseq="0" command="Run run$1 for 13 Event, 14 Time, 14 Information" filename="/gpfs/main/home/zdixon/course/cs195y/kerberosmodelproof/KerberosTime.als">
+
+<sig label="seq/Int" ID="0" parentID="1" builtin="yes">
+</sig>
+
+<sig label="Int" ID="1" parentID="2" builtin="yes">
+</sig>
+
+<sig label="String" ID="3" parentID="2" builtin="yes">
+</sig>
+
+<sig label="this/Time" ID="4" parentID="2">
+   <atom label="Time$0"/>
+   <atom label="Time$1"/>
+   <atom label="Time$2"/>
+   <atom label="Time$3"/>
+   <atom label="Time$4"/>
+   <atom label="Time$5"/>
+   <atom label="Time$6"/>
+   <atom label="Time$7"/>
+   <atom label="Time$8"/>
+   <atom label="Time$9"/>
+   <atom label="Time$10"/>
+   <atom label="Time$11"/>
+   <atom label="Time$12"/>
+   <atom label="Time$13"/>
+</sig>
+
+<sig label="this/Ka" ID="5" parentID="6" one="yes">
+   <atom label="Ka$0"/>
+</sig>
+
+<sig label="this/Ktgs" ID="7" parentID="6" one="yes">
+   <atom label="Ktgs$0"/>
+</sig>
+
+<sig label="this/Ks" ID="8" parentID="6" one="yes">
+   <atom label="Ks$0"/>
+</sig>
+
+<sig label="this/Kat" ID="9" parentID="6" one="yes">
+   <atom label="Kat$0"/>
+</sig>
+
+<sig label="this/Kas" ID="10" parentID="6" one="yes">
+   <atom label="Kas$0"/>
+</sig>
+
+<sig label="this/Key" ID="6" parentID="11">
+</sig>
+
+<sig label="this/Encrypted" ID="12" parentID="11">
+   <atom label="Encrypted$0"/>
+   <atom label="Encrypted$1"/>
+   <atom label="Encrypted$2"/>
+   <atom label="Encrypted$3"/>
+   <atom label="Encrypted$4"/>
+   <atom label="Encrypted$5"/>
+   <atom label="Encrypted$6"/>
+</sig>
+
+<sig label="this/A" ID="13" parentID="14" one="yes">
+   <atom label="A$0"/>
+</sig>
+
+<sig label="this/S" ID="15" parentID="14" one="yes">
+   <atom label="S$0"/>
+</sig>
+
+<sig label="this/Name" ID="14" parentID="11" abstract="yes">
+</sig>
+
+<sig label="this/Information" ID="11" parentID="2" abstract="yes">
+</sig>
+
+<sig label="this/Global" ID="16" parentID="2" one="yes">
+   <atom label="Global$0"/>
+</sig>
+
+<field label="encryption" ID="17" parentID="16">
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$0"/> <atom label="Ktgs$0"/> <atom label="Kat$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$1"/> <atom label="Ka$0"/> <atom label="Kat$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$2"/> <atom label="Ks$0"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$3"/> <atom label="Kat$0"/> <atom label="A$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$4"/> <atom label="Kat$0"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$5"/> <atom label="Kas$0"/> <atom label="A$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Encrypted$6"/> <atom label="Kas$0"/> <atom label="S$0"/> </tuple>
+   <types> <type ID="16"/> <type ID="12"/> <type ID="6"/> <type ID="11"/> </types>
+</field>
+
+<field label="initial" ID="18" parentID="16">
+   <tuple> <atom label="Global$0"/> <atom label="KDC$0"/> <atom label="Ka$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="KDC$0"/> <atom label="Ktgs$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="KDC$0"/> <atom label="Kat$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="TGS$0"/> <atom label="Ktgs$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="TGS$0"/> <atom label="Ks$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="TGS$0"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Service$0"/> <atom label="Ks$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Service$0"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Service$0"/> <atom label="S$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Client$0"/> <atom label="Ka$0"/> </tuple>
+   <tuple> <atom label="Global$0"/> <atom label="Client$0"/> <atom label="A$0"/> </tuple>
+   <types> <type ID="16"/> <type ID="19"/> <type ID="11"/> </types>
+</field>
+
+<sig label="this/KDC" ID="20" parentID="19" one="yes">
+   <atom label="KDC$0"/>
+</sig>
+
+<sig label="this/TGS" ID="21" parentID="19" one="yes">
+   <atom label="TGS$0"/>
+</sig>
+
+<sig label="this/Service" ID="22" parentID="19" one="yes">
+   <atom label="Service$0"/>
+</sig>
+
+<sig label="this/Client" ID="23" parentID="19" one="yes">
+   <atom label="Client$0"/>
+</sig>
+
+<sig label="this/Actor" ID="19" parentID="2" abstract="yes">
+</sig>
+
+<field label="info" ID="24" parentID="19">
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ka$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Ktgs$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Kat$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="A$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="A$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="A$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Encrypted$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Encrypted$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Encrypted$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Encrypted$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Encrypted$1"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="KDC$0"/> <atom label="Encrypted$1"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ktgs$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Ks$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kat$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kat$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Kas$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="A$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="A$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$2"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$2"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$2"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$2"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$2"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$3"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$3"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="TGS$0"/> <atom label="Encrypted$4"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Ks$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Kas$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Kas$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Kas$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="A$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="A$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="S$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Encrypted$2"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Encrypted$2"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Encrypted$5"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Encrypted$5"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Service$0"/> <atom label="Encrypted$6"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Ka$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kat$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kas$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kas$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kas$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kas$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Kas$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$0"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="A$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="S$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$1"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$2"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$2"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$2"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$2"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$2"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$3"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$4"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$4"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$4"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$4"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$4"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$5"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$5"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$5"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$5"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Client$0"/> <atom label="Encrypted$6"/> <atom label="Time$13"/> </tuple>
+   <types> <type ID="19"/> <type ID="11"/> <type ID="4"/> </types>
+</field>
+
+<sig label="this/Message" ID="25" parentID="26">
+   <atom label="Message$0"/>
+   <atom label="Message$1"/>
+   <atom label="Message$2"/>
+</sig>
+
+<field label="from" ID="27" parentID="25">
+   <tuple> <atom label="Message$0"/> <atom label="Client$0"/> </tuple>
+   <tuple> <atom label="Message$1"/> <atom label="Client$0"/> </tuple>
+   <tuple> <atom label="Message$2"/> <atom label="Client$0"/> </tuple>
+   <types> <type ID="25"/> <type ID="23"/> </types>
+</field>
+
+<field label="to" ID="28" parentID="25">
+   <tuple> <atom label="Message$0"/> <atom label="Service$0"/> </tuple>
+   <tuple> <atom label="Message$1"/> <atom label="TGS$0"/> </tuple>
+   <tuple> <atom label="Message$2"/> <atom label="KDC$0"/> </tuple>
+   <types> <type ID="25"/> <type ID="19"/> </types>
+</field>
+
+<field label="inf" ID="29" parentID="25">
+   <tuple> <atom label="Message$0"/> <atom label="Encrypted$2"/> </tuple>
+   <tuple> <atom label="Message$0"/> <atom label="Encrypted$5"/> </tuple>
+   <tuple> <atom label="Message$1"/> <atom label="Encrypted$0"/> </tuple>
+   <tuple> <atom label="Message$1"/> <atom label="Encrypted$3"/> </tuple>
+   <tuple> <atom label="Message$2"/> <atom label="A$0"/> </tuple>
+   <types> <type ID="25"/> <type ID="11"/> </types>
+</field>
+
+<sig label="this/Reply" ID="30" parentID="26">
+   <atom label="Reply$0"/>
+   <atom label="Reply$1"/>
+   <atom label="Reply$2"/>
+</sig>
+
+<field label="from" ID="31" parentID="30">
+   <tuple> <atom label="Reply$0"/> <atom label="Service$0"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="TGS$0"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="KDC$0"/> </tuple>
+   <types> <type ID="30"/> <type ID="19"/> </types>
+</field>
+
+<field label="to" ID="32" parentID="30">
+   <tuple> <atom label="Reply$0"/> <atom label="Client$0"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="Client$0"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="Client$0"/> </tuple>
+   <types> <type ID="30"/> <type ID="23"/> </types>
+</field>
+
+<field label="inf" ID="33" parentID="30">
+   <tuple> <atom label="Reply$0"/> <atom label="Encrypted$5"/> </tuple>
+   <tuple> <atom label="Reply$0"/> <atom label="Encrypted$6"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="Encrypted$2"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="Encrypted$4"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="Encrypted$0"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="Encrypted$1"/> </tuple>
+   <types> <type ID="30"/> <type ID="11"/> </types>
+</field>
+
+<field label="message" ID="34" parentID="30">
+   <tuple> <atom label="Reply$0"/> <atom label="Message$0"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="Message$1"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="Message$2"/> </tuple>
+   <types> <type ID="30"/> <type ID="25"/> </types>
+</field>
+
+<sig label="this/Encrypt" ID="35" parentID="26">
+   <atom label="Encrypt$0"/>
+   <atom label="Encrypt$1"/>
+   <atom label="Encrypt$2"/>
+   <atom label="Encrypt$3"/>
+   <atom label="Encrypt$4"/>
+   <atom label="Encrypt$5"/>
+   <atom label="Encrypt$6"/>
+</sig>
+
+<field label="a" ID="36" parentID="35">
+   <tuple> <atom label="Encrypt$0"/> <atom label="Service$0"/> </tuple>
+   <tuple> <atom label="Encrypt$1"/> <atom label="Client$0"/> </tuple>
+   <tuple> <atom label="Encrypt$2"/> <atom label="TGS$0"/> </tuple>
+   <tuple> <atom label="Encrypt$3"/> <atom label="Client$0"/> </tuple>
+   <tuple> <atom label="Encrypt$4"/> <atom label="TGS$0"/> </tuple>
+   <tuple> <atom label="Encrypt$5"/> <atom label="KDC$0"/> </tuple>
+   <tuple> <atom label="Encrypt$6"/> <atom label="KDC$0"/> </tuple>
+   <types> <type ID="35"/> <type ID="19"/> </types>
+</field>
+
+<field label="i" ID="37" parentID="35">
+   <tuple> <atom label="Encrypt$0"/> <atom label="S$0"/> </tuple>
+   <tuple> <atom label="Encrypt$1"/> <atom label="A$0"/> </tuple>
+   <tuple> <atom label="Encrypt$2"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Encrypt$3"/> <atom label="A$0"/> </tuple>
+   <tuple> <atom label="Encrypt$4"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Encrypt$5"/> <atom label="Kat$0"/> </tuple>
+   <tuple> <atom label="Encrypt$6"/> <atom label="Kat$0"/> </tuple>
+   <types> <type ID="35"/> <type ID="11"/> </types>
+</field>
+
+<field label="k" ID="38" parentID="35">
+   <tuple> <atom label="Encrypt$0"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Encrypt$1"/> <atom label="Kas$0"/> </tuple>
+   <tuple> <atom label="Encrypt$2"/> <atom label="Kat$0"/> </tuple>
+   <tuple> <atom label="Encrypt$3"/> <atom label="Kat$0"/> </tuple>
+   <tuple> <atom label="Encrypt$4"/> <atom label="Ks$0"/> </tuple>
+   <tuple> <atom label="Encrypt$5"/> <atom label="Ka$0"/> </tuple>
+   <tuple> <atom label="Encrypt$6"/> <atom label="Ktgs$0"/> </tuple>
+   <types> <type ID="35"/> <type ID="6"/> </types>
+</field>
+
+<field label="e" ID="39" parentID="35">
+   <tuple> <atom label="Encrypt$0"/> <atom label="Encrypted$6"/> </tuple>
+   <tuple> <atom label="Encrypt$1"/> <atom label="Encrypted$5"/> </tuple>
+   <tuple> <atom label="Encrypt$2"/> <atom label="Encrypted$4"/> </tuple>
+   <tuple> <atom label="Encrypt$3"/> <atom label="Encrypted$3"/> </tuple>
+   <tuple> <atom label="Encrypt$4"/> <atom label="Encrypted$2"/> </tuple>
+   <tuple> <atom label="Encrypt$5"/> <atom label="Encrypted$1"/> </tuple>
+   <tuple> <atom label="Encrypt$6"/> <atom label="Encrypted$0"/> </tuple>
+   <types> <type ID="35"/> <type ID="12"/> </types>
+</field>
+
+<sig label="this/Event" ID="26" parentID="2" abstract="yes">
+</sig>
+
+<field label="pre" ID="40" parentID="26">
+   <tuple> <atom label="Reply$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="Message$0"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Message$1"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Message$2"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="Encrypt$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Encrypt$1"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Encrypt$2"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Encrypt$3"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Encrypt$4"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="Encrypt$5"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="Encrypt$6"/> <atom label="Time$0"/> </tuple>
+   <types> <type ID="26"/> <type ID="4"/> </types>
+</field>
+
+<field label="post" ID="41" parentID="26">
+   <tuple> <atom label="Reply$0"/> <atom label="Time$13"/> </tuple>
+   <tuple> <atom label="Reply$1"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="Reply$2"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="Message$0"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="Message$1"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="Message$2"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="Encrypt$0"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="Encrypt$1"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="Encrypt$2"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="Encrypt$3"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="Encrypt$4"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="Encrypt$5"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="Encrypt$6"/> <atom label="Time$1"/> </tuple>
+   <types> <type ID="26"/> <type ID="4"/> </types>
+</field>
+
+<sig label="to/Ord" ID="42" parentID="2" one="yes" private="yes">
+   <atom label="to/Ord$0"/>
+</sig>
+
+<field label="First" ID="43" parentID="42" private="yes">
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$0"/> </tuple>
+   <types> <type ID="42"/> <type ID="4"/> </types>
+</field>
+
+<field label="Next" ID="44" parentID="42" private="yes">
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$0"/> <atom label="Time$1"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$1"/> <atom label="Time$2"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$2"/> <atom label="Time$3"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$3"/> <atom label="Time$4"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$4"/> <atom label="Time$5"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$5"/> <atom label="Time$6"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$6"/> <atom label="Time$7"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$7"/> <atom label="Time$8"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$8"/> <atom label="Time$9"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$9"/> <atom label="Time$10"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$10"/> <atom label="Time$11"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$11"/> <atom label="Time$12"/> </tuple>
+   <tuple> <atom label="to/Ord$0"/> <atom label="Time$12"/> <atom label="Time$13"/> </tuple>
+   <types> <type ID="42"/> <type ID="4"/> <type ID="4"/> </types>
+</field>
+
+<sig label="univ" ID="2" builtin="yes">
+</sig>
+
+<skolem label="$e" ID="45">
+   <tuple> <atom label="Time$0"/> <atom label="Encrypt$6"/> </tuple>
+   <tuple> <atom label="Time$1"/> <atom label="Message$2"/> </tuple>
+   <tuple> <atom label="Time$2"/> <atom label="Encrypt$5"/> </tuple>
+   <tuple> <atom label="Time$3"/> <atom label="Encrypt$4"/> </tuple>
+   <tuple> <atom label="Time$4"/> <atom label="Reply$2"/> </tuple>
+   <tuple> <atom label="Time$5"/> <atom label="Encrypt$3"/> </tuple>
+   <tuple> <atom label="Time$6"/> <atom label="Message$1"/> </tuple>
+   <tuple> <atom label="Time$7"/> <atom label="Encrypt$2"/> </tuple>
+   <tuple> <atom label="Time$8"/> <atom label="Reply$1"/> </tuple>
+   <tuple> <atom label="Time$9"/> <atom label="Encrypt$1"/> </tuple>
+   <tuple> <atom label="Time$10"/> <atom label="Message$0"/> </tuple>
+   <tuple> <atom label="Time$11"/> <atom label="Encrypt$0"/> </tuple>
+   <tuple> <atom label="Time$12"/> <atom label="Reply$0"/> </tuple>
+   <types> <type ID="4"/> <type ID="26"/> </types>
+</skolem>
+
+<skolem label="$en" ID="46">
+   <tuple> <atom label="Encrypted$0"/> <atom label="Encrypt$6"/> </tuple>
+   <tuple> <atom label="Encrypted$1"/> <atom label="Encrypt$5"/> </tuple>
+   <tuple> <atom label="Encrypted$2"/> <atom label="Encrypt$4"/> </tuple>
+   <tuple> <atom label="Encrypted$3"/> <atom label="Encrypt$3"/> </tuple>
+   <tuple> <atom label="Encrypted$4"/> <atom label="Encrypt$2"/> </tuple>
+   <tuple> <atom label="Encrypted$5"/> <atom label="Encrypt$1"/> </tuple>
+   <tuple> <atom label="Encrypted$6"/> <atom label="Encrypt$0"/> </tuple>
+   <types> <type ID="12"/> <type ID="35"/> </types>
+</skolem>
+
+</instance>
+
+<source filename="/gpfs/main/home/zdixon/course/cs195y/kerberosmodelproof/KerberosTime.als" content="&#x000a;open util/ordering[Time] as to&#x000a;&#x000a;sig Time {}&#x000a;&#x000a;abstract sig Information {}&#x000a;sig Key extends Information {}&#x000a;sig Encrypted extends Information {}&#x000a;abstract sig Name extends Information {}&#x000a;&#x000a;one sig Global{&#x000a;&#x0009;// Representation of encrypted data. encryption[encrypted value][encryption key] = value.&#x000a;&#x0009;encryption: Encrypted -&gt; Key -&gt; Information,&#x000a;&#x0009;// Default information held by Actors, used to maintain stateless behaviour (see Readme)&#x000a;&#x0009;initial: Actor -&gt; set Information&#x000a;&#x000a;}&#x000a;&#x000a;abstract sig Actor{&#x000a;&#x0009;// The information known by each actor at a given time, important as Client can learn information&#x000a;&#x0009;info: Information -&gt; Time&#x0009;&#x000a;}&#x000a;&#x000a;// Key Distribution Center&#x000a;one sig KDC extends Actor {}&#x000a;// Ticket Granting Service&#x000a;one sig TGS extends Actor {}&#x000a;// Arbitrary service that user wants to access&#x000a;one sig Service extends Actor {}&#x000a;&#x000a;// Representation of a User&#x000a;one sig Client extends Actor {}&#x000a;&#x000a;// Client&apos;s Identity&#x000a;one sig A extends Name{}&#x000a;// Service&apos;s Identity&#x000a;one sig S extends Name{}&#x000a;// Key based on user password&#x000a;one sig Ka extends Key{}&#x000a;// TGS secret key&#x000a;one sig Ktgs extends Key{}&#x000a;// Service secret key&#x000a;one sig Ks extends Key{}&#x000a;// Session key between client and TGS&#x000a;one sig Kat extends Key{}&#x000a;// Session key between client and service&#x000a;one sig Kas extends Key{}&#x000a;&#x000a;// Sets up initial known keys, initializes Global.initial&#x000a;pred init [t: Time] {&#x000a;&#x0009;Client.info.t = A + Ka&#x000a;&#x0009;KDC.info.t = Ka + Ktgs + Kat&#x000a;&#x0009;TGS.info.t = Ktgs + Ks + Kas&#x000a;&#x0009;Service.info.t = Ks + S&#x000a;&#x0009;// Service doesn&apos;t initially know Kas, but will retain it if learned&#x000a;&#x0009;Global.initial = ((Client -&gt; (A + Ka)) + (KDC -&gt; (Ka + Ktgs + Kat)) &#x000a;&#x0009;&#x0009;+ (TGS -&gt; (Ktgs + Ks + Kas)) + (Service -&gt; (Ks + S + Kas)))&#x000a;&#x0009;}&#x000a;&#x000a;abstract sig Event {&#x000a;&#x0009;pre, post: Time&#x000a;&#x0009;}&#x000a;&#x000a;fact Traces {&#x000a;&#x0009;init [first]&#x000a;&#x0009;all t: Time-last |&#x000a;&#x0009;&#x0009;let t&apos; = t.next |&#x000a;&#x0009;&#x0009;&#x0009;some e: Event {&#x000a;&#x0009;&#x0009;&#x0009;&#x0009;e.pre = t and e.post = t&apos;&#x000a;&#x0009;&#x0009;&#x0009;}&#x000a;&#x0009;}&#x000a;&#x000a;fact Encryption {&#x000a;&#x0009;//Encrypted object can only point to one unencrypted object, &#x000a;&#x0009;// and had to have been encrypted by an Encrypt Event&#x000a;&#x0009;all enc: Encrypted | (one Global.encryption[enc] and  some en : Encrypt | en.e = enc)&#x000a;}&#x000a;&#x000a;// No actors except those in set a can change over this time step&#x000a;pred actorChange[a : Actor, t : Time, t&apos; : Time] {&#x000a;&#x0009;all ac : (Actor - a) |&#x000a;&#x0009;&#x0009;ac.info.t = ac.info.t&apos;&#x000a;}&#x000a;&#x000a;sig Message extends Event {&#x000a;&#x0009;from: Client,&#x000a;&#x0009;to: Actor,&#x000a;&#x0009;inf: set Information&#x000a;} {&#x000a;&#x0009;// The message only needs to include at most two things, so this is enforced to reduce solving time&#x000a;&#x0009;(#inf = 1) or (#inf = 2)&#x000a;&#x0009;inf in from.info.pre&#x000a;&#x0009;inf not in to.info.pre&#x000a;&#x0009;// Decryption is done automatically. The information learned by the recipient is the encrypted information,&#x000a;&#x0009;// along with two levels of decryption. This is to cover the case where one piece of decryptable info contains&#x000a;&#x0009;// the key to decrypt the other. This doesn&apos;t need to be recursive as there are at most two pieces of data.&#x000a;&#x0009;to.info.post = to.info.pre + inf + Global.encryption[inf][to.info.pre] + &#x000a;&#x0009;&#x0009;Global.encryption[inf][Global.encryption[inf][to.info.pre]]&#x000a;&#x0009;actorChange[to, pre, post]&#x000a;}&#x000a;&#x000a;sig Reply extends Event {&#x000a;&#x0009;from: Actor,&#x000a;&#x0009;to: Client,&#x000a;&#x0009;inf: set Information,&#x000a;&#x0009;// The message that this is replying to&#x000a;&#x0009;message: one Message&#x000a;} {&#x000a;&#x0009;// The message only needs to include at most two things, so this is enforced to reduce solving time&#x000a;&#x0009;(#inf = 1) or (#inf = 2)&#x000a;&#x0009;inf in from.info.pre&#x000a;&#x0009;inf not in to.info.pre&#x000a;&#x0009;// Decryption is done automatically. The information learned by the recipient is the encrypted information,&#x000a;&#x0009;// along with two levels of decryption. This is to cover the case where one piece of decryptable info contains&#x000a;&#x0009;// the key to decrypt the other. This doesn&apos;t need to be recursive as there are at most two pieces of data.&#x000a;&#x0009;to.info.post = to.info.pre + inf + Global.encryption[inf][to.info.pre] + &#x000a;&#x0009;&#x0009;Global.encryption[inf][Global.encryption[inf][to.info.pre]]&#x000a;&#x0009;// Replying actor forgets its learned values, except for Service, which can learn Kas (as it uses &amp;)&#x000a;&#x0009;from.info.post = from.info.pre &amp; Global.initial[from]&#x000a;&#x0009;actorChange[(to + from), pre, post]&#x000a;}&#x000a;&#x000a;// Requires that no Message/Reply events interrupt an ongoing Message/Reply pair. Encrypt events can occur&#x000a;// between Message and Reply, though.&#x000a;fact noInterruption {&#x000a;&#x0009;all m : Message | one r : Reply | {&#x000a;&#x0009;&#x0009;gt[r.pre, m.pre]&#x000a;&#x0009;&#x0009;m.to = r.from&#x000a;&#x0009;&#x0009;r.to = m.from&#x000a;&#x0009;&#x0009;r.message = m&#x000a;&#x0009;&#x0009;// no interrupting Message, don&apos;t need to specify that there aren&apos;t interrupting Reply events, because &#x000a;&#x0009;&#x0009;// an interrupting Reply would imply a previous interrupting Message&#x000a;&#x0009;&#x0009;no m2 : (Message - m) | {&#x000a;&#x0009;&#x0009;&#x0009;gt[m2.pre, m.pre]&#x000a;&#x0009;&#x0009;&#x0009;lt[m2.pre, r.pre]&#x000a;&#x0009;&#x0009;}&#x000a;&#x0009;}&#x000a;}&#x000a;&#x000a;// Every reply has a message that it is paired with.&#x000a;fact noUnsolicitied {&#x000a;&#x0009;Reply.message = Message&#x000a;&#x0009;#Reply = #Message&#x000a;}&#x000a;&#x000a;sig Encrypt extends Event {&#x000a;&#x0009;a : Actor,&#x000a;&#x0009;i : Information,&#x000a;&#x0009;k : Key,&#x000a;&#x0009;e : Encrypted&#x000a;} {&#x000a;&#x0009;i in a.info.pre&#x000a;&#x0009;k in a.info.pre&#x000a;&#x0009;a.info.post = a.info.pre + e&#x000a;&#x0009;(e -&gt; k -&gt; i) in Global.encryption&#x000a;&#x0009;actorChange[a, pre, post]&#x000a;&#x0009;// KDC is the only Actor that can encrypt with Ka&#x000a;&#x0009;// This is because Ka is based on the user password, and shouldn&apos;t be used for&#x000a;&#x0009;// session authentication. Kat should be used instead.&#x000a;&#x0009;(k = Ka) implies (a = KDC)&#x000a;&#x0009;// Client is the only one who should be creating identification information for themselves&#x000a;&#x0009;(i = A) implies (a = Client)&#x000a;}&#x000a;&#x000a;fact noUnencrypted{ &#x000a;&#x0009;// All messages are encrypted, except that the Client needs to be able to send&#x000a;&#x0009;// an initial identification message prior to receiving any shared keys.&#x000a;&#x0009;all m : Message |  {&#x000a;&#x0009;&#x0009;(m.from = Client and m.to = KDC) implies m.inf in (Encrypted + A)&#x000a;&#x0009;&#x0009;(m.from not = Client or m.to not = KDC) implies m.inf in Encrypted&#x000a;&#x0009;}&#x000a;&#x0009;// All replies are encrypted.&#x000a;&#x0009;all r : Reply | r.inf in Encrypted&#x000a;}&#x000a;&#x000a;// Clients should never get access to server-specific secret keys (Ktgs, Ks)&#x000a;fact noSecretKeysShared {&#x000a;&#x0009;no Client.info.Time &amp; (Ktgs + Ks)&#x000a;}&#x000a;&#x000a;// In order to reply to a Message, the sender needs to know the identity of the recipient (A).&#x000a;fact identityProven {&#x000a;&#x0009;all r : Reply | &#x000a;&#x0009;&#x0009;A in r.from.info.(r.pre)&#x000a;}&#x000a;&#x000a;// Desired end result. Client has communicated with Service (has S),&#x000a;// and they can communicate in the future using Kas.&#x000a;pred canAccess {&#x000a;&#x0009;(S + Kas) in Client.info.last&#x000a;&#x0009;Kas in Service.info.last&#x000a;}&#x000a;&#x000a;// Doesn&apos;t find a solution for fewer events/time steps. NOTE: For us, this takes 30-40 minutes to run.&#x000a;run {canAccess} for 13 Event, 14 Time, 14 Information&#x000a;&#x000a;// Grading reccomendation: To check a model output, we recommend projecting over Time and seeing which&#x000a;// Event is ocurring at a given time (indicated by $pre). Then, use the Evaluator to determine what occurred during&#x000a;// that Event. That can be compared with the diagram we provided. Also, keep in mind that decrypting is implied, and&#x000a;// you can check what Client knows at a given time with Client.info.time. &#x000a;"/>
+
+<source filename="/$alloy4$/models/util/integer.als" content="module util/integer&#x000a;&#x000a;/*&#x000a; * A collection of utility functions for using Integers in Alloy.&#x000a; * Note that integer overflows are silently truncated to the current bitwidth&#x000a; * using the 2&apos;s complement arithmetic, unless the &quot;forbid overfows&quot; option is&#x000a; * turned on, in which case only models that don&apos;t have any overflows are &#x000a; * analyzed. &#x000a; */&#x000a;&#x000a;fun add  [n1, n2: Int] : Int { this/plus[n1, n2] }&#x000a;fun plus [n1, n2: Int] : Int { n1 fun/add n2 }&#x000a;&#x000a;fun sub   [n1, n2: Int] : Int { this/minus[n1, n2] }&#x000a;fun minus [n1, n2: Int] : Int { n1 fun/sub n2 }&#x000a;&#x000a;fun mul [n1, n2: Int] : Int { n1 fun/mul n2 }&#x000a;&#x000a;/**&#x000a; * Performs the division with &quot;round to zero&quot; semantics, except the following 3 cases&#x000a; * 1) if a is 0, then it returns 0&#x000a; * 2) else if b is 0, then it returns 1 if a is negative and -1 if a is positive&#x000a; * 3) else if a is the smallest negative integer, and b is -1, then it returns a&#x000a; */&#x000a;fun div [n1, n2: Int] : Int { n1 fun/div n2 }&#x000a;&#x000a;/** answer is defined to be the unique integer that satisfies &quot;a = ((a/b)*b) + remainder&quot; */&#x000a;fun rem [n1, n2: Int] : Int { n1 fun/rem n2 }&#x000a;&#x000a;/** negate */&#x000a;fun negate [n: Int] : Int { 0 fun/sub n }&#x000a;&#x000a;/** equal to */&#x000a;pred eq [n1, n2: Int] { int[n1] = int[n2] }&#x000a;&#x000a;/** greater than */&#x000a;pred gt [n1, n2: Int] { n1 &gt; n2 }&#x000a;&#x000a;/** less then */&#x000a;pred lt [n1, n2: Int] { n1 &lt; n2 }&#x000a;&#x000a;/** greater than or equal */&#x000a;pred gte [n1, n2: Int] { n1 &gt;= n2 }&#x000a;&#x000a;/** less than or equal */&#x000a;pred lte [n1, n2: Int] { n1 &lt;= n2 }&#x000a;&#x000a;/** integer is zero */&#x000a;pred zero [n: Int] { n = 0 }&#x000a;&#x000a;/** positive */&#x000a;pred pos  [n: Int] { n &gt; 0 }&#x000a;&#x000a;/** negative */&#x000a;pred neg  [n: Int] { n &lt; 0 }&#x000a;&#x000a;/** non-positive */&#x000a;pred nonpos [n: Int] { n &lt;= 0 }&#x000a;&#x000a;/** non-negative */&#x000a;pred nonneg [n: Int] { n &gt;= 0 }&#x000a;&#x000a;/** signum (aka sign or sgn) */&#x000a;fun signum [n: Int] : Int { n&lt;0 =&gt; (0 fun/sub 1) else (n&gt;0 =&gt; 1 else 0) }&#x000a;&#x000a;/**&#x000a; * returns the ith element (zero-based) from the set s&#x000a; * in the ordering of &apos;next&apos;, which is a linear ordering&#x000a; * relation like that provided by util/ordering&#x000a; */&#x000a;fun int2elem[i: Int, next: univ-&gt;univ, s: set univ] : lone s {&#x000a;  {e: s | #^next.e = int i }&#x000a;}&#x000a;&#x000a;/**&#x000a; * returns the index of the element (zero-based) in the&#x000a; * ordering of next, which is a linear ordering relation&#x000a; * like that provided by util/ordering&#x000a; */&#x000a;fun elem2int[e: univ, next: univ-&gt;univ] : lone Int {&#x000a;  Int[#^next.e]&#x000a;}&#x000a;&#x000a;/** returns the largest integer in the current bitwidth */&#x000a;fun max:one Int { fun/max }&#x000a;&#x000a;/** returns the smallest integer in the current bitwidth */&#x000a;fun min:one Int { fun/min }&#x000a;&#x000a;/** maps each integer (except max) to the integer after it */&#x000a;fun next:Int-&gt;Int { fun/next }&#x000a;&#x000a;/** maps each integer (except min) to the integer before it */&#x000a;fun prev:Int-&gt;Int { ~next }&#x000a;&#x000a;/** given a set of integers, return the largest element */&#x000a;fun max [es: set Int]: lone Int { es - es.^prev }&#x000a;&#x000a;/** given a set of integers, return the smallest element */&#x000a;fun min [es: set Int]: lone Int { es - es.^next }&#x000a;&#x000a;/** given an integer, return all integers prior to it */&#x000a;fun prevs [e: Int]: set Int { e.^prev }&#x000a;&#x000a;/** given an integer, return all integers following it */&#x000a;fun nexts [e: Int]: set Int { e.^next }&#x000a;&#x000a;/** returns the larger of the two integers */&#x000a;fun larger [e1, e2: Int]: Int { let a=int[e1], b=int[e2] | (a&lt;b =&gt; b else a) }&#x000a;&#x000a;/** returns the smaller of the two integers */&#x000a;fun smaller [e1, e2: Int]: Int { let a=int[e1], b=int[e2] | (a&lt;b =&gt; a else b) }&#x000a;"/>
+
+<source filename="/$alloy4$/models/util/ordering.als" content="module util/ordering[exactly elem]&#x000a;&#x000a;/*&#x000a; * Creates a single linear ordering over the atoms in elem. It also constrains all&#x000a; * the atoms to exist that are permitted by the scope on elem. That is, if the scope&#x000a; * on a signature S is 5, opening util/ordering[S] will force S to have 5 elements&#x000a; * and create a linear ordering over those five elements. The predicates and&#x000a; * functions below provide access to properties of the linear ordering, such as&#x000a; * which element is first in the ordering, or whether a given element precedes&#x000a; * another. You cannotcreate multiple linear orderings over the same signature with&#x000a; * this model. If you that functionality, try using the util/sequence module instead.&#x000a; *&#x000a; * Technical comment:&#x000a; * An important constraint: elem must contain all atoms permitted by the scope.&#x000a; * This is to let the analyzer optimize the analysis by setting all fields of each&#x000a; * instantiation of Ord to predefined values: e.g. by setting &apos;last&apos; to the highest&#x000a; * atom of elem and by setting &apos;next&apos; to {&lt;T0,T1&gt;,&lt;T1,T2&gt;,...&lt;Tn-1,Tn&gt;}, where n is&#x000a; * the scope of elem. Without this constraint, it might not be true that Ord.last is&#x000a; * a subset of elem, and that the domain and range of Ord.next lie inside elem.&#x000a; *&#x000a; * author: Ilya Shlyakhter&#x000a; * revisions: Daniel jackson&#x000a; */&#x000a;&#x000a;private one sig Ord {&#x000a;   First: set elem,&#x000a;   Next: elem -&gt; elem&#x000a;} {&#x000a;   pred/totalOrder[elem,First,Next]&#x000a;}&#x000a;&#x000a;/** first */&#x000a;fun first: one elem { Ord.First }&#x000a;&#x000a;/** last */&#x000a;fun last: one elem { elem - (next.elem) }&#x000a;&#x000a;/** return a mapping from each element to its predecessor */&#x000a;fun prev : elem-&gt;elem { ~(Ord.Next) }&#x000a;&#x000a;/** return a mapping from each element to its successor */&#x000a;fun next : elem-&gt;elem { Ord.Next }&#x000a;&#x000a;/** return elements prior to e in the ordering */&#x000a;fun prevs [e: elem]: set elem { e.^(~(Ord.Next)) }&#x000a;&#x000a;/** return elements following e in the ordering */&#x000a;fun nexts [e: elem]: set elem { e.^(Ord.Next) }&#x000a;&#x000a;/** e1 is less than e2 in the ordering */&#x000a;pred lt [e1, e2: elem] { e1 in prevs[e2] }&#x000a;&#x000a;/** e1 is greater than e2 in the ordering */&#x000a;pred gt [e1, e2: elem] { e1 in nexts[e2] }&#x000a;&#x000a;/** e1 is less than or equal to e2 in the ordering */&#x000a;pred lte [e1, e2: elem] { e1=e2 || lt [e1,e2] }&#x000a;&#x000a;/** e1 is greater than or equal to e2 in the ordering */&#x000a;pred gte [e1, e2: elem] { e1=e2 || gt [e1,e2] }&#x000a;&#x000a;/** returns the larger of the two elements in the ordering */&#x000a;fun larger [e1, e2: elem]: elem { lt[e1,e2] =&gt; e2 else e1 }&#x000a;&#x000a;/** returns the smaller of the two elements in the ordering */&#x000a;fun smaller [e1, e2: elem]: elem { lt[e1,e2] =&gt; e1 else e2 }&#x000a;&#x000a;/**&#x000a; * returns the largest element in es&#x000a; * or the empty set if es is empty&#x000a; */&#x000a;fun max [es: set elem]: lone elem { es - es.^(~(Ord.Next)) }&#x000a;&#x000a;/**&#x000a; * returns the smallest element in es&#x000a; * or the empty set if es is empty&#x000a; */&#x000a;fun min [es: set elem]: lone elem { es - es.^(Ord.Next) }&#x000a;&#x000a;assert correct {&#x000a;  let mynext = Ord.Next |&#x000a;  let myprev = ~mynext | {&#x000a;     ( all b:elem | (lone b.next) &amp;&amp; (lone b.prev) &amp;&amp; (b !in b.^mynext) )&#x000a;     ( (no first.prev) &amp;&amp; (no last.next) )&#x000a;     ( all b:elem | (b!=first &amp;&amp; b!=last) =&gt; (one b.prev &amp;&amp; one b.next) )&#x000a;     ( !one elem =&gt; (one first &amp;&amp; one last &amp;&amp; first!=last &amp;&amp; one first.next &amp;&amp; one last.prev) )&#x000a;     ( one elem =&gt; (first=elem &amp;&amp; last=elem &amp;&amp; no myprev &amp;&amp; no mynext) )&#x000a;     ( myprev=~mynext )&#x000a;     ( elem = first.*mynext )&#x000a;     (all disj a,b:elem | a in b.^mynext or a in b.^myprev)&#x000a;     (no disj a,b:elem | a in b.^mynext and a in b.^myprev)&#x000a;     (all disj a,b,c:elem | (b in a.^mynext and c in b.^mynext) =&gt;(c in a.^mynext))&#x000a;     (all disj a,b,c:elem | (b in a.^myprev and c in b.^myprev) =&gt;(c in a.^myprev))&#x000a;  }&#x000a;}&#x000a;run {} for exactly 0 elem expect 0&#x000a;run {} for exactly 1 elem expect 1&#x000a;run {} for exactly 2 elem expect 1&#x000a;run {} for exactly 3 elem expect 1&#x000a;run {} for exactly 4 elem expect 1&#x000a;check correct for exactly 0 elem&#x000a;check correct for exactly 1 elem&#x000a;check correct for exactly 2 elem&#x000a;check correct for exactly 3 elem&#x000a;check correct for exactly 4 elem&#x000a;check correct for exactly 5 elem&#x000a;"/>
+
+</alloy>
